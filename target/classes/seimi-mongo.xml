@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mappingContext"
+          class="org.springframework.data.mongodb.core.mapping.MongoMappingContext"/>
+
+    <!-- 把 spring data mongodb 多余保存的_class字段去掉 -->
+
+    <!-- 默认Mongodb类型映射 -->
+    <bean id="defaultMongoTypeMapper"
+          class="org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper">
+        <constructor-arg name="typeKey">
+            <null/><!-- 这里设置为空,可以把 spring data mongodb 多余保存的_class字段去掉 -->
+        </constructor-arg>
+    </bean>
+
+
+    <!-- 指定需要映射的mongoDbFactory 为 mongo_factory_Fenyunzhibo -->
+    <bean id="mappingMongoConverter"
+          class="org.springframework.data.mongodb.core.convert.MappingMongoConverter">
+
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+        <constructor-arg name="mappingContext" ref="mappingContext"/>
+        <property name="typeMapper" ref="defaultMongoTypeMapper"/>
+    </bean>
+
+
+    <mongo:db-factory mongo-ref="mongoClient" dbname="corpus_dataset"/>
+
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+        <constructor-arg name="mongoConverter" ref="mappingMongoConverter"/>
+    </bean>
+
+
+    <mongo:mongo-client id="mongoClient"
+                        host="10.3.175.59"
+                        port="27020"
+                        credentials="dbimport:dbimport@corpus_dataset">
+
+        <mongo:client-options connections-per-host="8"
+                              threads-allowed-to-block-for-connection-multiplier="4"
+                              connect-timeout="1000"
+                              max-wait-time="1500"
+                              socket-keep-alive="true"
+                              socket-timeout="1500"/>
+    </mongo:mongo-client>
+
+
+    <bean id="osChinaDao" class="com.olami.spider.dao.SogouDao"/>
+
+</beans>

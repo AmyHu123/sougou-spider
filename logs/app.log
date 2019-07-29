@@ -1,0 +1,13 @@
+2019-07-29 15:19:22.418 INFO  cn.wanghaomiao.seimi.core.SeimiContext - Refreshing cn.wanghaomiao.seimi.core.SeimiContext@4b8d604b: startup date [Mon Jul 29 15:19:22 CST 2019]; root of context hierarchy
+2019-07-29 15:19:25.479 WARN  config - 'failedAttempts' setting in unavailable. Please use 'failedSlaveCheckInterval' setting instead!
+2019-07-29 15:19:25.481 WARN  config - 'reconnectionTimeout' setting in unavailable. Please use 'failedSlaveReconnectionInterval' setting instead!
+2019-07-29 15:19:25.910 INFO  org.redisson.Version - Redisson 3.6.5
+2019-07-29 15:19:27.993 INFO  org.redisson.connection.pool.MasterPubSubConnectionPool - 1 connections initialized for /10.3.175.214:6379
+2019-07-29 15:19:27.993 INFO  org.redisson.connection.pool.MasterConnectionPool - 10 connections initialized for /10.3.175.214:6379
+2019-07-29 15:19:28.024 INFO  cn.wanghaomiao.seimi.def.DefaultRedisQueue - springboot=false,isEnableRedissonQueue = false,redisson = org.redisson.Redisson@4351ed61
+2019-07-29 15:19:28.037 WARN  config - 'failedAttempts' setting in unavailable. Please use 'failedSlaveCheckInterval' setting instead!
+2019-07-29 15:19:28.037 WARN  config - 'reconnectionTimeout' setting in unavailable. Please use 'failedSlaveReconnectionInterval' setting instead!
+2019-07-29 15:19:28.094 INFO  cn.wanghaomiao.seimi.struct.CrawlerModel - Crawler[pinyin.sogou.info] init complete.
+2019-07-29 15:19:28.095 INFO  cn.wanghaomiao.seimi.struct.CrawlerModel - Crawler[pinyin.sogou] init complete.
+2019-07-29 15:19:28.095 INFO  cn.wanghaomiao.seimi.struct.CrawlerModel - Crawler[pinyin.sogou.cityInfo] init complete.
+2019-07-29 15:19:28.113 INFO  cn.wanghaomiao.seimi.struct.CrawlerModel - pinyin.sogou.info url=https://pinyin.sogou.com/dict/cate/index/167 started
