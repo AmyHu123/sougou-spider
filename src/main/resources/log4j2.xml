@@ -23,8 +23,6 @@
                 </Delete>
             </DefaultRolloverStrategy>
         </RollingFile>
-
-
     </Appenders>
 
     <Loggers>

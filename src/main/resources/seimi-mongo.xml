@@ -42,7 +42,7 @@
     <mongo:mongo-client id="mongoClient"
                         host="xxxxx"
                         port="xxx"
-                        credentials="dbimport:dbimport@数据库名称">
+                        credentials="用户名:密码@数据库名称">
 
         <mongo:client-options connections-per-host="8"
                               threads-allowed-to-block-for-connection-multiplier="4"
